@@ -2,26 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.scale-icon {
+  transform: scale(0.8); 
+  transform-origin: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Circle Animation */
+.o-svg {
+  display: block;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+}
+
+.o-circle {
+  stroke-dasharray: 251; /* Circumference of the circle */
+  stroke-dashoffset: 251; /* Hide the circle initially */
+  animation: drawCircle 0.5s ease forwards;
+}
+
+/* Keyframe animation for circle */
+@keyframes drawCircle {
+  from {
+    stroke-dashoffset: 251; /* Start with the circle hidden */
+  }
+  to {
+    stroke-dashoffset: 0; /* Animate to reveal the full circle */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Rotate to start drawing from the 12 o'clock position */
+.o-circle {
+  transform: rotate(-90deg); /* Rotate to start from the 12 o'clock position */
+  transform-origin: center; /* Rotate around the center of the SVG */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* X Animation */
+.x-svg {
+  display: block;
+  margin: auto;
+  width: 100px; 
+  height: 100px; 
+}
+
+.x-line {
+  stroke-dasharray: 114; /* Length of the lines, adjust if necessary */
+  stroke-dashoffset: 114; /* Hide lines initially */
+  animation: drawLine 0.5s ease forwards;
+}
+
+.x-line.line1 {
+  animation-delay: 0s; /* Start immediately */
+}
+
+.x-line.line2 {
+  animation-delay: 0.25s; /* Start after a quarter of the animation duration */
+}
+
+/* Keyframe animation for X lines */
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 114; /* Start with lines hidden */
+  }
+  to {
+    stroke-dashoffset: 0; /* Animate to reveal the lines */
   }
 }
