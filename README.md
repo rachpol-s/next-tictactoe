@@ -1,5 +1,9 @@
 # next-tictactoe
 
+## Node.js Version
+
+This project requires Node.js 18.18 or later.
+
 ## Build Setup
 
 ```bash
